@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ZatusService } from './zatus.service';
+import { ZatusSettingsService } from './zatus-settings.service';
 
-describe('ZatusService', () => {
-  let service: ZatusService;
+describe('ZatusSettingsService', () => {
+  let service: ZatusSettingsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ZatusService);
+    service = TestBed.inject(ZatusSettingsService);
   });
 
   it('should be created', () => {

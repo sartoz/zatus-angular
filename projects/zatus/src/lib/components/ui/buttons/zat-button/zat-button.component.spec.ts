@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ZatusComponent } from './zatus.component';
+import { ZatButtonComponent } from './zat-button.component';
 
-describe('ZatusComponent', () => {
-  let component: ZatusComponent;
-  let fixture: ComponentFixture<ZatusComponent>;
+describe('ZatButtonComponent', () => {
+  let component: ZatButtonComponent;
+  let fixture: ComponentFixture<ZatButtonComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ZatusComponent]
+      imports: [ZatButtonComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(ZatusComponent);
+    fixture = TestBed.createComponent(ZatButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
