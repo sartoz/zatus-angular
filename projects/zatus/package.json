@@ -1,0 +1,19 @@
+{
+  "name": "zatus",
+  "version": "0.1.0",
+  "description": "A UI component library for Angular",
+  "author": "sartoz",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sartoz/zatus-angular.git"
+  },
+  "peerDependencies": {
+    "@angular/common": "^17.1.0",
+    "@angular/core": "^17.1.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}
