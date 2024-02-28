@@ -4,11 +4,7 @@ import {ValidationFailure} from "./validation-failure";
 
 export class FieldValidationFailure extends ValidationFailure {
 
-    get field(): string {
-        return this.field;
-    }
-
-    constructor(protected field: string, failure: string, code?: string) {
+    constructor(public field: string, failure: string, code?: string) {
         super(failure, code);
     }
 }

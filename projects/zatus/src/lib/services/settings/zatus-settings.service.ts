@@ -44,10 +44,10 @@ export class ZatusSettingsService {
     }
 
     protected throwErrorIfZatusSettingsIsInvalid = (zatusSettings: ZatusSettings): void => {
-        const zatusSettingsErrors = ZatusSettings.IsValid(zatusSettings);
-        if (zatusSettingsErrors.length > 0) {
-            InvalidZatusSettingsError.ThrowMe(zatusSettingsErrors);
-        }
+        // const zatusSettingsErrors = ZatusSettings.IsValid(zatusSettings);
+        // if (zatusSettingsErrors.length > 0) {
+        //     InvalidZatusSettingsError.ThrowMe(zatusSettingsErrors);
+        // }
     }
 
     public resetSettingsToStandalone = (): ZatusSettings => {

@@ -3,7 +3,7 @@
     "dest": "../../dist/zatus",
     "assets": [
         {
-            "input": "assets",
+            "input": "assets/styles",
             "glob": "**/*.scss",
             "output": "styles"
         }

@@ -1,0 +1,14 @@
+:root {
+    --zat-bg-primary: #2d2d2f;
+    --zat-bg-secondary: #373739;
+    --zat-contrast-primary: #4b4b4d;
+    --zat-contrast-secondary: #19191b;
+    --zat-highlight: #326496;
+    --zat-color: #fff;
+    --zat-color-inverse: #000;
+}
+
+body[data-zatus-theme="zatus-flat-theme"] {
+    @import 'components/panel-flat';
+}
+

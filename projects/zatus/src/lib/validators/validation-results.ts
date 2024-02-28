@@ -1,5 +1,6 @@
 // TODO: Migrate to the zatus-core-js lib
 import {ValidationFailure} from "./validation-failure";
+import {DuplicateFailureError} from "../core/errors/duplicate-failure-error";
 
 export class ValidationResults<T> {
     protected _failures: T[];
@@ -10,7 +11,7 @@ export class ValidationResults<T> {
 
     public static createWithPreviousFailures = <T>(previousFailures?: T[] | ValidationResults<T>, allowDuplicateFailures: boolean = true): ValidationResults<T> => {
         const validationResult = new ValidationResults<T>(allowDuplicateFailures);
-        return previousFailures instanceof ValidationFailure<T> ?
+        return previousFailures instanceof ValidationFailure ?
             validationResult.fillWithPreviousFailuresFromValidationResults(previousFailures as any) :
             validationResult.fillWithPreviousFailuresFromGenericArray(previousFailures as any);
     }
@@ -33,7 +34,7 @@ export class ValidationResults<T> {
     }
 
     get failures(): T[] {
-        return JSON.parse(JSON.stringify(this._failures)); // TODO: Replace with lodash.cloneDeep
+        return this._failures;
     }
 
     public addFailure = (failure: T): ValidationResults<T> => {
@@ -50,13 +51,18 @@ export class ValidationResults<T> {
             failures.find(failure => this._failures.includes(failure)) :
             this._failures.find(failure => failure == failures);
         if (duplicateFailureFound) {
-            throw new Error('Duplicate failure is not allowed');
+            DuplicateFailureError.ThrowMe(duplicateFailureFound as any);
         }
     }
 
     public addFailures = (failures: T[]): ValidationResults<T> => {
         this.throwErrorIfNotAllowDuplicateFailure(failures);
         this._failures = this._failures.concat(failures || []);
+        return this;
+    }
+
+    public clear = (): ValidationResults<T> => {
+        this._failures = [];
         return this;
     }
 }
