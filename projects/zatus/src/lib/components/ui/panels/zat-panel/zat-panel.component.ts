@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input} from '@angular/core';
 import {ZatPanel} from "../../../interfaces/panels/zat-panel";
 import {ZatusPanelSettings} from "../../../../core/settings/components/ui/zatus-panel-settings";
 import {ZatusPanelPlainSettings} from "../../../../core/settings/components/ui/zatus-panel-plain-settings";
+import {InlineStyleBuilder} from "../../../../core/themes/inline-style-builder";
 
 @Component({
     selector: 'zat-panel',
@@ -13,32 +14,33 @@ import {ZatusPanelPlainSettings} from "../../../../core/settings/components/ui/z
 })
 export class ZatPanelComponent implements ZatPanel {
     protected _settings!: ZatusPanelSettings;
-    protected _background!: string;
-    protected _border!: string;
-    protected _borderColor!: string;
-    protected _borderRadius!: string;
-    protected _borderStyle!: string;
-    protected _borderWidth!: string;
-    protected _color!: string;
-    protected _fontFamily!: string;
-    protected _fontSize!: string;
-    protected _fontWeight!: string;
-    protected _height!: string;
-    protected _margin!: string;
-    protected _marginBottom!: string;
-    protected _marginLeft!: string;
-    protected _marginRight!: string;
-    protected _marginTop!: string;
-    protected _menuContext!: any;
-    protected _paddingBottom!: string;
-    protected _paddingLeft!: string;
-    protected _paddingRight!: string;
-    protected _paddingTop!: string;
-    protected _styleClasses!: string;
-    protected _textTransform!: string;
-    protected _textAlign!: string;
-    protected _padding!: string;
-    protected _width!: string;
+    protected _styleBuilder = new InlineStyleBuilder();
+    // protected _background!: string;
+    // protected _border!: string;
+    // protected _borderColor!: string;
+    // protected _borderRadius!: string;
+    // protected _borderStyle!: string;
+    // protected _borderWidth!: string;
+    // protected _color!: string;
+    // protected _fontFamily!: string;
+    // protected _fontSize!: string;
+    // protected _fontWeight!: string;
+    // protected _height!: string;
+    // protected _margin!: string;
+    // protected _marginBottom!: string;
+    // protected _marginLeft!: string;
+    // protected _marginRight!: string;
+    // protected _marginTop!: string;
+    // protected _menuContext!: any;
+    // protected _paddingBottom!: string;
+    // protected _paddingLeft!: string;
+    // protected _paddingRight!: string;
+    // protected _paddingTop!: string;
+    // protected _styleClasses!: string;
+    // protected _textTransform!: string;
+    // protected _textAlign!: string;
+    // protected _padding!: string;
+    // protected _width!: string;
     protected _onClick!: EventEmitter<ZatPanel>;
     protected _onResize!: EventEmitter<ZatPanel>;
 
@@ -57,29 +59,29 @@ export class ZatPanelComponent implements ZatPanel {
 
     @Input()
     set background(value: string) {
-        this._background = value;
+        this._styleBuilder.setStylePropertyOrRemoveIfValueIsEmpty(`background`, value);
     }
 
     get background(): string {
-        return this._background;
+        return this._styleBuilder.getStyleProperty(`background`);
     }
 
     @Input()
     set border(value: string) {
-        this._border = value;
+        this._styleBuilder.setStylePropertyOrRemoveIfValueIsEmpty(`border`, value);
     }
 
     get border(): string {
-        return this._border;
+        return this._styleBuilder.getStyleProperty(`border`);
     }
 
     @Input()
     set borderColor(value: string) {
-        this._borderColor = value;
+        this._styleBuilder.setStylePropertyOrRemoveIfValueIsEmpty(`border-color`, value);
     }
 
     get borderColor(): string {
-        return this._borderColor;
+        this._styleBuilder.getStyleProperty(`border-color`);
     }
 
     @Input()

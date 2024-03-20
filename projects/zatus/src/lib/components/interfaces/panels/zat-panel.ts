@@ -4,5 +4,6 @@ import {ZatPanelComponent} from "../../ui/panels/zat-panel/zat-panel.component";
 
 export interface ZatPanel extends UIElementPlainSettings<ZatPanel> {
     settings: ZatusPanelSettings;
-    component: ZatPanelComponent
+    component: ZatPanelComponent;
+    buildStyle: () => string;
 }
