@@ -1,10 +1,10 @@
-import {ValidationFailure} from "../../validators/validation-failure";
-import {FieldValidationFailure} from "../../validators/field-validation-failure";
+import { ValidationFailure } from "../../validators/validation-failure";
+import { FieldValidationFailure } from "../../validators/field-validation-failure";
 
 export type DuplicateFailure = ValidationFailure | FieldValidationFailure;
 
 export class DuplicateFailureError extends Error {
-    failure: DuplicateFailure
+    failure: DuplicateFailure;
 
     private constructor(message: string, failure: DuplicateFailure) {
         super(message);
@@ -12,7 +12,10 @@ export class DuplicateFailureError extends Error {
         this.failure = failure;
     }
 
-    public static ThrowMe = (failure: DuplicateFailure): void => {
-        throw new DuplicateFailureError(`Duplicate failure is not allowed.`, failure);
-    }
+    public static throwMe = (failure: DuplicateFailure): void => {
+        throw new DuplicateFailureError(
+            `Duplicate failure is not allowed.`,
+            failure,
+        );
+    };
 }
